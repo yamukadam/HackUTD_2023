@@ -14,4 +14,3 @@ def prompter():
             artiline += line
         prompt.write(f'Based off the following article : "{artiline}", how do you think this will affect {company}s future earnings? Give a concise answer based of market sentiment. Begin your response with based on market sentiment.')
         prompt.close()
-prompter()
