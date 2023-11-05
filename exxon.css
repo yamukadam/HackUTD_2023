@@ -18,10 +18,10 @@ body{
   }
   .menu{
     display: block;
-    width: 95%;
+    width: 93%;
     margin-top: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 2%;
+    margin-left: 0;
     height: auto+5%;
     padding: 50px;
     background-color:#eeeeee;
@@ -160,14 +160,23 @@ body{
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
 
-  .return{
-    background-color: #5a646b;
-    color: white;
-    padding: 16px;
-    display: block;
-    display: block;
-    position: relative;
-    top: 400px;
-    bottom: 0%;
-    right: -3%;
+.return{
+  background-color: #5a646b;
+  color: white;
+  padding: 16px;
+  display: inline-block;
+  position: relative;
+  top: 400px;
+  bottom: 0%;
+  right: 48%;
+}
+.back{
+  background-color: #5a646b;
+  color: white;
+  padding: 16px;
+  display: inline-block;
+  position: relative;
+  top: 400px;
+  bottom: 0%;
+  right: 20%;
 }
