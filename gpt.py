@@ -1,5 +1,10 @@
 import openai
-openai.api_key = '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'
+import os
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.environ['API_KEY']
+
+openai.api_key = api_key
 messages = [ {"role": "system", "content":  
               "You are a intelligent assistant."} ] 
 while True: 
