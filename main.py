@@ -24,4 +24,17 @@ def run(ind):
     print(f"ChatGPT: {reply}") 
     messages.append({"role": "assistant", "content": reply})
     print("")
-run(2)
+    return reply
+output_txt2 = run(2)
+output_file2 = open("shell_output.txt", "w")
+output_file2.write(output_txt2)
+
+output_txt1 = run(1)
+output_file1 = open("aramco_output.txt", "w")
+output_file1.write(output_txt1)
+
+output_txt0 = run(0)
+output_file0 = open("exxon_output.txt", "w")
+output_file0.write(output_txt0)
+
+
