@@ -9,10 +9,7 @@ def scraper(url, company, arttype = "article"):
     article = article.find_all('li')
   text = []
   file = None
-  try:
-    file = open(f"{company}.txt", "x")
-  except:
-    file = open(f"{company}.txt", "a")
+  file = open(f"{company}prompt.txt", "w")
   for x in article:
       if ('\n') not in x.text and len(x.text) > 100: 
         text.append(x.text)

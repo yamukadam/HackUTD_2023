@@ -1,4 +1,4 @@
-Read the following article : "Russia launched an unprecedented invasion of its neighbor Ukraine on Thursday, with military assaults on several key Ukrainian cities including its capital, Kyiv.
+Based off the following article : "Russia launched an unprecedented invasion of its neighbor Ukraine on Thursday, with military assaults on several key Ukrainian cities including its capital, Kyiv.
 The attack on Ukraine is taking place both on the ground and by air, with reports that Russian forces have breached the Kyiv region. Explosions have also been heard in the cities of Odessa, Kharkiv and Mariupol, and there are reports of fighting and fatalities in other parts of the country. 
 Officials said the offensive had already killed dozens of soldiers and several civilians as of Thursday afternoon.
 Stocks fell sharply on the news of the invasion with investors fleeing for safe-haven assets, while global energy prices jumped to multi-year highs.
@@ -28,4 +28,4 @@ Ukraine's defense minister, Oleksii Reznikov, posted a message on Facebook in wh
 "Anyone who is ready and able to hold weapons" can now join the Territorial Defense Forces, he said, adding that to get weapons, Ukrainians needed to contact "brigades and battalions directly in your region. You only need to have a passport," to sign up, he said.
 "The enemy attacks, but our army is unbreakable," Reznikov wrote, noting that Ukraine had gone "into total defense mode."
 Data is a real-time snapshot *Data is delayed at least 15 minutes. Global Business and Financial News, Stock Quotes, and Market Data and Analysis.
-", how do you think this will affect the Exxon company?
+", how do you think this will affect Exxons future earnings? Give a concise answer based of market sentiment.

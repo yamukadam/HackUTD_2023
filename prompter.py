@@ -7,14 +7,11 @@ def prompter():
         scraper(rand.choice(urls), company)
     for company in companies:
         prompt = None
-        try:
-            prompt = open(f"{company}prompt.txt", "x")
-        except:
-            prompt = open(f"{company}prompt.txt", "a")
+        prompt = open(f"{company}prompt.txt", "w")
         article = open(f'{company}.txt','r')
         artiline = ''
         for line in article:
             artiline += line
-        prompt.write(f'Read the following article : "{artiline}", how do you think this will affect the {company} company?')
+        prompt.write(f'Based off the following article : "{artiline}", how do you think this will affect {company}s future earnings? Give a concise answer based of market sentiment.')
         prompt.close()
 prompter()

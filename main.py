@@ -12,19 +12,15 @@ messages = [ {"role": "system", "content":
 companies = ["Exxon", "Saudi Aramco", "Shell"]
 for company in companies:
     promptfile = open(f'{company}prompt.txt','r')
-    prompt = ''
-    for line in promptfile:
-        if line[0] != ' ':
-            prompt += line
-        else:
-            prompt +=f' {line}'
-    if prompt: 
+    message = promptfile.read()
+    if message: 
         messages.append( 
-            {"role": "user", "content": prompt}, 
+            {"role": "user", "content": message}, 
         ) 
         chat = openai.ChatCompletion.create( 
-            model="gpt-3.5-turbo", messages=messages 
+            model="gpt-3.5-turbo-16k", messages=messages 
         ) 
-    reply = chat.choices[0].prompt.content 
+    reply = chat.choices[0].message.content 
     print(f"ChatGPT: {reply}") 
     messages.append({"role": "assistant", "content": reply})
+    print("")
