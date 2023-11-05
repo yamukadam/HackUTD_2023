@@ -23,7 +23,7 @@ body{
     margin-right: 2%;
     margin-left: 0;
     height: auto+5%;
-    padding: 50px;
+    padding: 25px;
     background-color:#eeeeee;
     border-radius: 25px;
   }
@@ -69,7 +69,8 @@ body{
     overflow: visible;
     object-fit: contain;
   }
-  h1{
+  h1,p{
+    z-index: 1;
     font-weight: 2000;
     font-size: 6000;
     margin-top: auto - 0.3%;
