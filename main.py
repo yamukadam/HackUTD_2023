@@ -1,11 +1,14 @@
 import openai
 import os
 from dotenv import load_dotenv
+from prompter import prompter
+prompter()
 load_dotenv()
 api_key = os.environ['API_KEY']
 openai.api_key = api_key
 messages = [ {"role": "system", "content":  
               "You are a intelligent assistant."} ] 
+
 companies = ["Exxon", "Saudi Aramco", "Shell"]
 for company in companies:
     promptfile = open(f'{company}prompt.txt','r')
