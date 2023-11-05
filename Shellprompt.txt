@@ -24,4 +24,4 @@ The most comprehensive solution to manage all your complex and ever-expanding ta
  Access unmatched financial data, news and content in a highly-customised workflow experience on desktop, web and mobile.
  Browse an unrivalled portfolio of real-time and historical market data and insights from worldwide sources and experts.
 Screen for heightened risk individual and entities globally to help uncover hidden risks in business relationships and human networks.
-", how do you think this will affect Shells future earnings? Give a concise answer based of market sentiment.
+", how do you think this will affect Shells future earnings? Give a concise answer based of market sentiment. Begin your response with based on market sentiment.
