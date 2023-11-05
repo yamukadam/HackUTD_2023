@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-env>
+      - openai
+      - os
+      - dotenv
+      - random
+      - bs4
+      - requests
+    </py-env>
   </head>
   <body>
     <div class="about">
@@ -26,9 +34,66 @@
       <br>
       <br>
       <py-script>
-        import main as main
+        from bs4 import BeautifulSoup
+        from dotenv import load_dotenv
+        import random as rand
+        def scraper(url, company, arttype = "article"):
+          page = requests.get(url)
+          article = BeautifulSoup(page.text, 'html.parser')
+          if arttype == "article":
+            article = article.find_all('p')
+          elif arttype == "list":
+            article = article.find_all('li')
+          text = []
+          file = None
+          file = open(f"{company}prompt.txt", "w")
+          for x in article:
+            if ('\n') not in x.text and len(x.text) > 100: 
+              text.append(x.text)
+          for x in text:
+            file.write(x)
+              file.write('\n')
         
-
+        def prompter():
+          companies = ["Exxon", "Saudi Aramco", "Shell"]
+          urls = ['https://www.reuters.com/business/energy/sarabia-other-opec-producers-announce-voluntary-oil-output-cuts-2023-04-02/','https://www.cnbc.com/2022/02/24/russian-forces-invade-ukraine.html','https://www.cnbc.com/2021/06/09/tc-energy-terminates-keystone-xl-pipeline-project.html']
+          for company in companies:
+              scraper(rand.choice(urls), company)
+          for company in companies:
+              prompt = None
+              prompt = open(f"{company}prompt.txt", "w")
+              article = open(f'{company}.txt','r')
+              artiline = ''
+              for line in article:
+                artiline += line
+              prompt.write(f'Based off the following article : "{artiline}", how do you think this will affect {company}s future earnings? Give a concise answer based of market sentiment. Begin your response with based on market sentiment.')
+              prompt.close()
+        
+              prompter()
+              load_dotenv()
+              api_key = os.environ['API_KEY']
+              openai.api_key = api_key
+        def run():
+            messages = [ {"role": "system", "content":  
+                        "You are a intelligent assistant."} ] 
+        
+            companies = ["Exxon", "Saudi Aramco", "Shell"]
+            for company in companies:
+                promptfile = open(f'{company}prompt.txt','r')
+                message = promptfile.read()
+                if message: 
+                  messages.append( 
+                      {"role": "user", "content": message}, 
+                  ) 
+                  chat = openai.ChatCompletion.create( 
+                      model="gpt-3.5-turbo-16k", messages=messages 
+                  ) 
+                reply = chat.choices[0].message.content 
+                response = f"ChatGPT: {reply}")
+                pyscript.write('reply',response)
+                messages.append({"role": "assistant", "content": reply})
+                print("")
+        run()
         display('Hello World')
     </py-script>
       <br>
