@@ -18,10 +18,10 @@ body{
   }
   .menu{
     display: block;
-    width: 95%;
+    width: 93%;
     margin-top: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 2%;
+    margin-left: 0;
     height: auto+5%;
     padding: 50px;
     background-color:#eeeeee;
