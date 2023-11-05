@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Oil Industry</title>
+    <link href="oil.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="about">
+        <img src="pictures/header_image.jpeg" class="headim" width="24%">
+        <img src="pictures/logo.jpg" class="dp">
+        <div class="info">
+            <h1>The Oil Industry</h1>
+            <br>
+            <a href='index.html'><button class="return">Return To Homepage</button></a>
+        </div>
+    </div>
+    <div class="menu">
+      <h1 style="margin-top: -2%;">Pick a Company</h1>
+      <br>
+      <br>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Companies</button>
+        <div id="companies" class="dropdown-content">
+          <a href="exxon.html">Exxon</a>
+          <a href="aramco.html">Saudi Aramco</a>
+          <a href='shell.html'>Shell</a>
+          <script>
+            function myFunction() {
+              document.getElementById("companies").classList.toggle("show");
+            }
+            window.onclick = function(event) {
+              if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                  }
+                }
+              }
+            }
+          </script>
+        </div>
+      </div>
+      <br>
+    </div>
+   <br>
+   <br>
+</body>
+</html>
