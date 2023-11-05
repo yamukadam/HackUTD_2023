@@ -53,49 +53,45 @@
               text.append(x.text)
           for x in text:
             file.write(x)
-              file.write('\n')
-        
-        def prompter():
+            file.write('\n')
+    
+        def prompter(ind):
           companies = ["Exxon", "Saudi Aramco", "Shell"]
           urls = ['https://www.reuters.com/business/energy/sarabia-other-opec-producers-announce-voluntary-oil-output-cuts-2023-04-02/','https://www.cnbc.com/2022/02/24/russian-forces-invade-ukraine.html','https://www.cnbc.com/2021/06/09/tc-energy-terminates-keystone-xl-pipeline-project.html']
-          for company in companies:
-              scraper(rand.choice(urls), company)
-          for company in companies:
-              prompt = None
-              prompt = open(f"{company}prompt.txt", "w")
-              article = open(f'{company}.txt','r')
-              artiline = ''
-              for line in article:
-                artiline += line
-              prompt.write(f'Based off the following article : "{artiline}", how do you think this will affect {company}s future earnings? Give a concise answer based of market sentiment. Begin your response with based on market sentiment.')
-              prompt.close()
-        prompter()
+          company = companies[ind]    
+          scraper(rand.choice(urls), company)
+          prompt = None
+          prompt = open(f"{company}prompt.txt", "w")
+          article = open(f'{company}.txt','r')
+          artiline = ''
+          for line in article:
+            artiline += line
+          prompt.write(f'Based off the following article : "{artiline}", how do you think this will affect {company}s future earnings? Give a concise answer based of market sentiment. Begin your response with based on market sentiment.')
+          prompt.close()
+        
         load_dotenv()
         api_key = os.environ['API_KEY']
         openai.api_key = api_key
-        def run():
+        def run(ind):
+          prompter(ind)
           messages = [ {"role": "system", "content":  
                       "You are a intelligent assistant."} ] 
-      
           companies = ["Exxon", "Saudi Aramco", "Shell"]
-          for company in companies:
-            promptfile = open(f'{company}prompt.txt','r')
-            message = promptfile.read()
-            if message: 
+          company = companies[ind]
+          promptfile = open(f'{company}prompt.txt','r')
+          message = promptfile.read()
+          if message: 
               messages.append( 
-                {"role": "user", "content": message}, 
+                  {"role": "user", "content": message}, 
               ) 
               chat = openai.ChatCompletion.create( 
-                model="gpt-3.5-turbo-16k", messages=messages 
+                  model="gpt-3.5-turbo-16k", messages=messages 
               ) 
           reply = chat.choices[0].message.content 
-          response = f"ChatGPT: {reply}"
-          display(response)
-          pyscript.write('reply',response)
+          print(f"ChatGPT: {reply}") 
           messages.append({"role": "assistant", "content": reply})
           print("")
-        run()
-        display('Hello World')
+        run(2)
     </py-script>
       <br>
     </div>
