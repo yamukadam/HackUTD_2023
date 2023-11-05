@@ -26,6 +26,7 @@
         <div class="info">
             <h1>Shell Prediction</h1>
             <br>
+            <a href='oil.html'><button class="back">Back To Companies</button></a>
             <a href='index.html'><button class="return">Return To Homepage</button></a>
         </div>
     </div>
@@ -73,26 +74,26 @@
         api_key = os.environ['API_KEY']
         openai.api_key = api_key
         def run():
-            messages = [ {"role": "system", "content":  
-                        "You are a intelligent assistant."} ] 
-        
-            companies = ["Exxon", "Saudi Aramco", "Shell"]
-            for company in companies:
-                promptfile = open(f'{company}prompt.txt','r')
-                message = promptfile.read()
-                if message: 
-                  messages.append( 
-                      {"role": "user", "content": message}, 
-                  ) 
-                  chat = openai.ChatCompletion.create( 
-                      model="gpt-3.5-turbo-16k", messages=messages 
-                  ) 
-                reply = chat.choices[0].message.content 
-                response = f"ChatGPT: {reply}"
-                display(response)
-                pyscript.write('reply',response)
-                messages.append({"role": "assistant", "content": reply})
-                print("")
+          messages = [ {"role": "system", "content":  
+                      "You are a intelligent assistant."} ] 
+      
+          companies = ["Exxon", "Saudi Aramco", "Shell"]
+          for company in companies:
+            promptfile = open(f'{company}prompt.txt','r')
+            message = promptfile.read()
+            if message: 
+              messages.append( 
+                {"role": "user", "content": message}, 
+              ) 
+              chat = openai.ChatCompletion.create( 
+                model="gpt-3.5-turbo-16k", messages=messages 
+              ) 
+          reply = chat.choices[0].message.content 
+          response = f"ChatGPT: {reply}"
+          display(response)
+          pyscript.write('reply',response)
+          messages.append({"role": "assistant", "content": reply})
+          print("")
         run()
         display('Hello World')
     </py-script>
