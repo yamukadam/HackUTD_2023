@@ -38,7 +38,17 @@
         from bs4 import BeautifulSoup
         from dotenv import load_dotenv
         import random as rand
-        await micropip.install("beautifulsoup4")
+        async function installBeautifulSoup() {
+          try {
+            await micropip.install("beautifulsoup4");
+            print("Beautiful Soup 4 has been successfully installed.");
+          } catch (error) {
+            print("Error installing Beautiful Soup 4:", error);
+          }
+        }
+        
+        installBeautifulSoup();
+        from bs4 import BeautifulSoup
         def scraper(url, company, arttype = "article"):
           page = requests.get(url)
           article = BeautifulSoup(page.text, 'html.parser')

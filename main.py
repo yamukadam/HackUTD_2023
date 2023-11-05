@@ -24,3 +24,4 @@ def run(ind):
     print(f"ChatGPT: {reply}") 
     messages.append({"role": "assistant", "content": reply})
     print("")
+run(2)
